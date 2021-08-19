@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoom", "ChatRoom\ChatRoom.csproj", "{2DE24241-AA64-4D86-921A-C46E5998379D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebAPI", "SignalRWebAPI\SignalRWebAPI.csproj", "{F9DEAADE-EC33-4575-848B-B2BFD69B8F54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRWebAPI", "SignalRWebAPI\SignalRWebAPI.csproj", "{F9DEAADE-EC33-4575-848B-B2BFD69B8F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactClientApp", "ReactClientApp\ReactClientApp.csproj", "{B088108F-06D2-437D-B763-1D1D5B677E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactClientApp", "ReactClientApp\ReactClientApp.csproj", "{B088108F-06D2-437D-B763-1D1D5B677E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1", "Project1\Project1.csproj", "{64B6AC92-109F-475B-979B-2AEB3FE47E08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRMVCApp", "SignalRMVCApp\SignalRMVCApp.csproj", "{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{B088108F-06D2-437D-B763-1D1D5B677E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B088108F-06D2-437D-B763-1D1D5B677E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B088108F-06D2-437D-B763-1D1D5B677E26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{64B6AC92-109F-475B-979B-2AEB3FE47E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64B6AC92-109F-475B-979B-2AEB3FE47E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64B6AC92-109F-475B-979B-2AEB3FE47E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64B6AC92-109F-475B-979B-2AEB3FE47E08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

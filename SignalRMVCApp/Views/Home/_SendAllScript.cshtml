@@ -1,0 +1,47 @@
+﻿@using SignalRMVCApp.Models
+@model Notification
+
+<script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', ready);
+
+    function ready() {
+        //random number between 1 and 100 for a demo userId
+        var userId = Math.floor((Math.random() * 100) + 1);
+        document.getElementById("userId").innerHTML = userId;
+        $("#UserId").val(userId);
+        setSubmit();
+    }
+
+    function setSubmit() {
+        $('form').submit(function (e) {
+            e.preventDefault();
+            $('button[type=submit]').attr('disabled', 'disabled');
+            const form = $('form')[0];
+            const data = Object.fromEntries(new FormData(form));
+            notifyAll(data, () => {
+                $("#Header").val('');
+                $("#Content").val('');
+                $('button[type=submit]').removeAttr('disabled');
+            });
+
+            // or
+            //$.ajax({
+            //    url: this.action,
+            //    type: this.method,
+            //    data: $(this).serialize(),
+            //    success: function (result) {
+            //        $("#Header").val('');
+            //        $("#Content").val('');
+            //    },
+            //    error: function (d) {
+            //        alert("error");
+            //    }
+            //});
+            return false;
+        });
+    }
+
+</script>
+<script src='~/lib/signalr/signalr.js?v=3'></script>
+<script src='~/js/notification.js?v=3'></script>

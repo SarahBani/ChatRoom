@@ -1,4 +1,7 @@
 <p>
+	A sample project for demonstrating push notifications in order to have a real-time web application.
+</p>
+<p>
 	<b>
 		This project is implemented in the following technologies and frameworks:
     </b>

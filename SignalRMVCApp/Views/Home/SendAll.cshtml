@@ -1,0 +1,45 @@
+﻿@model SignalRMVCApp.Models.Notification
+@{
+    ViewData["Title"] = "Send All Users";
+}
+
+<div class="container">
+    @using (Html.BeginForm("SendAll", "Notification", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-3 text-right">
+                UserId
+            </div>
+            <div class="col-6">
+                <span id="userId"></span>
+                @Html.HiddenFor(model => Model.UserId)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 text-right">
+                Header
+            </div>
+            <div class="col-6">
+                @Html.TextBoxFor(model => Model.Header, new { @maxlength = "50" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 text-right">
+                Content
+            </div>
+            <div class="col-6">
+                @Html.TextAreaFor(model => Model.Content)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 text-right">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    }
+    <hr />
+    <div class="text-center">
+        <div id="chat"></div>
+    </div>
+</div>
+<partial name="~/Views/Home/_SendAllScript.cshtml" model="@Model" />
