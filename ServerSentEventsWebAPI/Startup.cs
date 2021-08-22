@@ -1,14 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using SignalRWebAPI.Hubs;
 
-namespace SignalRWebAPI
+namespace ServerSentEventsWebAPI
 {
     public class Startup
     {
@@ -22,21 +18,7 @@ namespace SignalRWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            //services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
-            //{
-            //    builder
-            //        .AllowAnyMethod()
-            //        .AllowAnyHeader()
-            //        //.AllowAnyOrigin() // cannot use both AllowAnyOrigin() and AllowCredentials() at the sametime
-            //        .SetIsOriginAllowed(origin => true) // allow any origin
-            //        .AllowCredentials();
-            //}));
-            services.AddSignalR();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SignalRWebAPI", Version = "v1" });
-            });
+             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,16 +27,14 @@ namespace SignalRWebAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SignalRWebAPI v1"));
             }
-
             app.UseHttpsRedirection();
             app.UseRouting();
-            //app.UseCors("CorsPolicy");
+            app.UseAuthorization();
             app.UseCors(builder =>
             {
-                builder//.WithOrigins("https://localhost:5001")
+                //builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                builder.WithOrigins("https://localhost:5001")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();
@@ -62,8 +42,25 @@ namespace SignalRWebAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("/hubs/chat");
-                endpoints.MapHub<PollHub>("/hubs/poll");
+
+                //endpoints.MapGet("/stream", async context =>
+                //{
+                //    var response = context.Response;
+                //    response.Headers.Add("connection", "keep-alive");
+                //    response.Headers.Add("cach-control", "no-cache");
+                //    response.Headers.Add("content-type", "text/event-stream");
+
+                //    while (true)
+                //    {
+                //        var obj = new { id = 1, name = "sdf" };
+                //        await response.Body
+                //            .WriteAsync(Encoding.UTF8.GetBytes($"data: {JsonSerializer.Serialize(obj)}\n\n"));
+
+                //        await response.Body.FlushAsync();
+                //        await Task.Delay(5 * 1000);
+                //    }
+
+                //});
             });
         }
     }

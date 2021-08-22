@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using SignalRMVCApp.Helper;
 using System;
 using System.Threading.Tasks;
 
-namespace SignalRMVCApp.Models
+namespace SignalRMVCApp.Hubs
 {
     public class NotificationUserHub : Hub
     {

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactClientApp", "ReactClie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRMVCApp", "SignalRMVCApp\SignalRMVCApp.csproj", "{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerSentEventsWebAPI", "ServerSentEventsWebAPI\ServerSentEventsWebAPI.csproj", "{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFFD1AB9-B596-429D-869D-5AB2A7B249DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

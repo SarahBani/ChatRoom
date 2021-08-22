@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using SignalRMVCApp.Helper;
 using SignalRMVCApp.Hubs;
 using SignalRMVCApp.Models;
 
