@@ -2,7 +2,7 @@
 
 namespace ServerSentEventsWebAPI.Models
 {
-    public class ChatMessage
+    public record ChatMessage
     {
 
         #region Properties
@@ -11,18 +11,21 @@ namespace ServerSentEventsWebAPI.Models
 
         public string Message { get; init; }
 
-        public DateTime SentDateTime { get; private set; }
+        public DateTime DateTime { get; init; }
+
+        public bool IsNotification { get; init; }
 
         #endregion /Properties
 
         #region Constructors
 
-        public ChatMessage(string username, string message)
+        public ChatMessage(string username, string message, bool isNotification = false)
         {
             this.Username = username;
             this.Message = message;
-            this.SentDateTime = DateTime.Now;
-            //this.SentDateTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+            this.DateTime = DateTime.Now;
+            //this.DateTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+            this.IsNotification = isNotification;
         }
 
         #endregion /Constructors

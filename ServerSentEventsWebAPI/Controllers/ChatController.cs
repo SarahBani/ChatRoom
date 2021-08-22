@@ -88,39 +88,46 @@ namespace ServerSentEventsWebAPI.Controllers
                 }
                 lock (clients)
                 {
-                    StreamWriter ignore;
-                    clients.TryTake(out ignore);
-                    client.DisposeAsync();
+                    clients = new ConcurrentBag<StreamWriter>(clients.Except(new[] { client }));
+                    //StreamWriter ignore;
+                    //clients.TryTake(out ignore);
+                    //client.DisposeAsync();
                 }
             }
         }
 
+        //[HttpPost("[action]")]
         [HttpPost]
         public async void Post(ChatMessage model)
         {
-            async Task Send(StreamWriter client)
-            {
-                try
-                {
-                    var data = JsonConvert.SerializeObject(model);
-                    await client.WriteAsync($"data: {data}\n\n");
-                    await client.FlushAsync();
-                }
-                catch (ObjectDisposedException ex)
-                {                    
-                    lock (clients)
-                    {
-                        //StreamWriter ignore;
-                        //clients.TryTake(out ignore);
-                        //client.Dispose();
-                    }
-                }
-            }
+            //async Task Send(StreamWriter client)
+            //{
+            //    try
+            //    {
+            //        var data = JsonConvert.SerializeObject(model);
+            //        await client.WriteAsync($"data: {data}\n\n");
+            //        await client.FlushAsync();
+            //    }
+            //    catch (ObjectDisposedException ex)
+            //    {
+            //        lock (clients)
+            //        {
+            //            StreamWriter ignore;
+            //            clients.TryTake(out ignore);
+            //            client.DisposeAsync();
+            //        }
+            //    }
+            //}
 
-            await Task.WhenAll(clients.Select(Send));
-
-            // await SendMessageAsync(model);
+            //await Task.WhenAll(clients.Select(Send));
+            await SendMessageAsync(model);
         }
+
+        //[HttpPost("Notify")]
+        //public async Task NotifyAsync([FromBody] string message)
+        //{
+        //    await SendMessageAsync(message);
+        //}
 
         private async Task SendMessageAsync(ChatMessage chatMessage)
         {
@@ -128,44 +135,21 @@ namespace ServerSentEventsWebAPI.Controllers
             {
                 try
                 {
-                    var data = JsonConvert.SerializeObject(chatMessage);
-                    await client.WriteAsync($"data: {data}\n\n");
+                    var jsonData = JsonConvert.SerializeObject(chatMessage);
+                    await client.WriteAsync($"data: {jsonData}\n\n");
                     await client.FlushAsync();
                 }
                 catch (ObjectDisposedException ex)
                 {
                     lock (clients)
                     {
-                        StreamWriter ignore;
-                        clients.TryTake(out ignore);
-                        //client.Dispose();
+                        clients = new ConcurrentBag<StreamWriter>(clients.Except(new[] { client }));
+                        //StreamWriter ignore;
+                        //clients.TryTake(out ignore);
                     }
                 }
             }
         }
-
-        //private async Task ChatCallbackMsg(ChatMessage chatMessage)
-        //{
-        //    foreach (var client in clients)
-        //    {
-        //        try
-        //        {
-        //            //var data = string.Format("data:{0}|{1}|{2}\n\n", model.Username, model.Message, model.SentDateTime);
-        //            //await client.WriteAsync(data);
-        //            //await client.FlushAsync();
-        //            //await client.DisposeAsync();
-        //            var data = JsonConvert.SerializeObject(chatMessage);
-        //            await client.WriteAsync($"data: {data}\n\n");
-        //            await client.FlushAsync();
-        //            await client.DisposeAsync();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            StreamWriter ignore;
-        //            clients.TryTake(out ignore);
-        //        }
-        //    }
-        //}
 
         #endregion /Methods
 
