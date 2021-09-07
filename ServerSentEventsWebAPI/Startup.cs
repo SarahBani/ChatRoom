@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Threading.Tasks;
 
 namespace ServerSentEventsWebAPI
 {
@@ -62,6 +65,26 @@ namespace ServerSentEventsWebAPI
 
                 //});
             });
+            //app.Use(async (context, next) =>
+            //{
+            //    if (context.Request.Path.ToString().Equals("/sse"))
+            //    {
+            //        var response = context.Response;
+            //        response.Headers.Add("Content-Type", "text/event-stream");
+
+            //        for (var i = 0; true; ++i)
+            //        {
+            //            // WriteAsync requires `using Microsoft.AspNetCore.Http`
+            //            await response
+            //                .WriteAsync($"data: Middleware {i} at {DateTime.Now}\r\r");
+
+            //            await response.Body.FlushAsync();
+            //            await Task.Delay(5 * 1000);
+            //        }
+            //    }
+
+            //    await next.Invoke();
+            //});
         }
     }
 }

@@ -1,5 +1,5 @@
 <p>
-		Sample projects for demonstrating various server push technologies in order to have a real-time web application.
+		Sample projects for demonstrating various server push technologies in order to have a real-time web application or a Progressive Web App(PWA).
 </p>
 <p>
 	<b>

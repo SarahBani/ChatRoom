@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRMVCApp", "SignalRMVC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerSentEventsWebAPI", "ServerSentEventsWebAPI\ServerSentEventsWebAPI.csproj", "{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PushNotificationWebAPI", "PushNotificationWebAPI\PushNotificationWebAPI.csproj", "{DF2AF283-FBD6-4DB9-8DB6-AF3743D49716}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{495B9F5B-F30D-4BA3-8BB0-BA9D04A236BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF2AF283-FBD6-4DB9-8DB6-AF3743D49716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF2AF283-FBD6-4DB9-8DB6-AF3743D49716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF2AF283-FBD6-4DB9-8DB6-AF3743D49716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF2AF283-FBD6-4DB9-8DB6-AF3743D49716}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

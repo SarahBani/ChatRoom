@@ -33,10 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\registerServiceWorker.ts" />
     <TypeScriptCompile Remove="ClientApp\src\shared\utility.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="ClientApp\src\registerServiceWorker.ts" />
     <None Include="ClientApp\src\shared\utility.ts" />
   </ItemGroup>
 
